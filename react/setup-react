@@ -21,11 +21,12 @@ yarn add -E react-router react-router-dom
 yarn add -E styled-components sanitize.css lodash
 
 # Testing
-yarn add -E jest enzyme
+yarn add -E --dev jest enzyme  enzyme-adapter-react-16
 
 # Prettier
-yarn add -E --dev  prettier eslint eslint-plugin-prettier eslint-config-prettier
-yarn add -E --dev babel-eslint eslint-config-react-app eslint-plugin-no-only-tests eslint-plugin-import
+yarn add -E --dev prettier eslint eslint-plugin-prettier eslint-config-prettier eslint-plugin-flowtype \
+eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks \
+babel-eslint eslint-config-react-app eslint-plugin-no-only-tests eslint-plugin-import
 
 # Set up pre-commit hook https://prettier.io/docs/en/precommit.html
 npx mrm lint-staged
@@ -38,8 +39,8 @@ touch readme.md
 sed 's/"^/"/g' package.json > tmp.json
 mv tmp.json package.json
 
-yarn autoclean --init
-yarn autoclean --force
+# yarn autoclean --init
+# yarn autoclean --force
 
 git add .
 git commit -m "Add libraries and packages"

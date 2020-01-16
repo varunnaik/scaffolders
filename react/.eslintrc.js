@@ -20,8 +20,6 @@ module.exports = {
     "no-unexpected-multiline": 0,
     "no-duplicate-imports": ["error"],
     "no-console": 0,
-    "jsx-a11y/anchor-is-valid": 0,
-    "jsx-a11y/anchor-has-content": 0,
     "no-only-tests/no-only-tests": 2,
     "import/order": [
       "error",
