@@ -1,0 +1,45 @@
+#!/bin/bash
+echo "Setting up a basic React project in dir \"$1\" (2020 spec)"
+if [[ $2 == "--typescript" ]];
+then
+    yarn create react-app "$1" --template typescript
+else
+    yarn create react-app "$1" --exact
+fi;
+
+cp ./.eslintrc.js "$1"
+cp ./.lintstagedrc "$1"
+cp ./.prettierrc "$1"
+
+cd "$1"
+
+# Install packages
+# React-router related
+yarn add -E react-router react-router-dom
+
+# Styling and utility
+yarn add -E styled-components sanitize.css lodash
+
+# Testing
+yarn add -E jest enzyme
+
+# Prettier
+yarn add -E --dev  prettier eslint eslint-plugin-prettier eslint-config-prettier
+yarn add -E --dev babel-eslint eslint-config-react-app eslint-plugin-no-only-tests eslint-plugin-import
+
+# Set up pre-commit hook https://prettier.io/docs/en/precommit.html
+npx mrm lint-staged
+
+# Get rid of CRA readme
+rm README.md
+touch readme.md
+
+# Fix exact versions for packages
+sed 's/"^/"/g' package.json > tmp.json
+mv tmp.json package.json
+
+yarn autoclean --init
+yarn autoclean --force
+
+git add .
+git commit -m "Add libraries and packages"
