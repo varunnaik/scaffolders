@@ -1,9 +1,11 @@
-### React starter
+While tools such as `create-react-app` and `express-generator` exist to scaffold out their respective projects, they don't generally do a complete setup with all embellishments and packages typically used in a project.
 
-This is a helper script to scaffold out a React application.
+This sets up a more ready-to-go environment by building on top of these tools.
 
-It uses create-react-app to build an application, and then sets up some essential libraries and prettier.
+### React scaffolder              
+
+This uses create-react-app to build an application, and then sets up some essential libraries, Jest for testing, and prettier.
+Does not add Redux.
 
 Call it with
-
 `./setup-react [--typescript] path-to-app
